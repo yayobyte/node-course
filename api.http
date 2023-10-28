@@ -1,0 +1,16 @@
+### GET pokemon ditto
+
+GET http://localhost:3000/pokemon/ditto
+Content-Type: application/json
+
+### POST pokemon ditto
+POST http://localhost:3000/pokemon/ditto
+Content-Type: application/json
+
+{
+  "name": "ditto",
+  "type": "normal",
+  "moves": [
+    "transform"
+  ]
+}
