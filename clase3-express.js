@@ -7,21 +7,8 @@ const PORT = process.env.PORT ?? 3000
 
 app.disable('x-powered-by')
 
-//If the data is a POST and the content type is not a JSON
-app.use((req, res, next) => {
-    if (req.method !== 'POST') return next()
-    if (req.headers['content-type'] !== 'application/json') return next()
+app.use(express.json())
 
-    // Process data to return a JSON
-    let body = ''
-    req.on('data', (chunk) => {
-        body += chunk.toString()
-    })
-    req.on('end', () => {
-        req.body = JSON.parse(body)
-        return next()
-    })
-})
 app.get('/', (req, res) => {
     res.send('<h1>Hello</h1>')
 })
